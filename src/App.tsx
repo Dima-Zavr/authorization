@@ -1,3 +1,5 @@
+import { Button } from "@components/Button/Button";
+
 export const App = () => {
-    return <></>;
+    return <Button>Войти</Button>;
 };
