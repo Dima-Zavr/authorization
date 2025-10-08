@@ -3,19 +3,19 @@
     align-items: center;
     justify-content: center;
     width: 328px;
-    height: auto;
     padding: 16px 0;
+    margin: 16px 0;
     font-size: 16px;
     font-weight: 600;
     border: none;
     border-radius: 16px;
-    background-color: #1975FF;
-    color: #ffffff;
+    background-color: $bg-color-brand;
+    color: $text-color-invert;
     &:hover {
         cursor: pointer;
-        background-color: #0052CC;
+        background-color: $bg-color-hover;
     }
     &:active {
-        background-color: #1975FF;
+        background-color: $bg-color-active;
     }
 }

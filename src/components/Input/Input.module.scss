@@ -1,0 +1,19 @@
+.input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 464px;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid $border-color-light;
+    border-radius: 16px;
+    background-color: $bg-color-primary;
+    color: $text-color-primary;
+    &:hover {
+        cursor: pointer;
+        border-color: $border-color-dark;
+    }
+    &:active {
+        border: 2px solid $bg-color-indicator;
+    }
+}
