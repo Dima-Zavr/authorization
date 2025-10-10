@@ -1,73 +1,31 @@
-# React + TypeScript + Vite
+# Авторизация
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Проект реализует страницу авторизации в веб-приложении, на странице можно вводить номер телефона и otp код
 
-Currently, two official plugins are available:
+### Стек технологий:
+* Фреймворк (библиотека) - [React](https://react.dev/) + JavaScript + TypeScript
+* Сборщик приложения - [Vite](https://vitejs.dev/)
+* State-manager - [MobX](https://www.npmjs.com/package/mobx)
+* Стилизация - [SaSS + CSS modules](https://sass-scss.ru/)
+* Получение данных с сервера - [Axios](https://www.npmjs.com/package/axios)
+* Чистота кода - [Prettier](https://prettier.io/) + [ESLint](https://eslint.org/) + [Husky](https://www.npmjs.com/package/husky) + [Lint Staged](https://www.npmjs.com/package/lint-staged)
+___
+### Реализовано:
+* Поля ввода номера телефона и otp кода
+* Маска ввода для поля телефона ( номер выглядит в формате "+7 999 999 99 99";
+* Валидация полей:
+  * В случае неполного ввода или не ввода номера телефона отображается надпись "Поле является обязательным";
+  * В случае неполного ввода или не ввода otp кода отображается надпись "Код должен содержать 6 цифр";
+* Запросы для
+  * Создания otp кода;
+  * Авторизации пользователя;
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Запросы посылаются на [backend](https://shift-intensive.ru/api)
+___
+|Поле ввода номера телефона|Валидация поля ввода номера телефона|
+|:--------------:|:--------------:|
+|<img width="1920" height="1080" alt="Снимок экрана 2025-10-10 223529" src="https://github.com/user-attachments/assets/e99d7c60-3c7c-4f90-8ddb-4a9757c25802" />|<img width="1920" height="1080" alt="Снимок экрана 2025-10-10 223540" src="https://github.com/user-attachments/assets/eff97c19-b15e-4db7-90ce-a0e7cc902e09" />|
+|**Валидация поля ввода otp кода**|**Введенный otp кoд**|
+|<img width="1920" height="1080" alt="Снимок экрана 2025-10-10 223605" src="https://github.com/user-attachments/assets/03a94dce-626a-47fe-b2fc-1fd0eeb01ffc" />|<img width="1920" height="1080" alt="Снимок экрана 2025-10-10 223631" src="https://github.com/user-attachments/assets/9d9fa2f0-7006-415e-a363-da351e5d2ada" />|
+|**Кнопка повторения запроса otp кода**||
+|<img width="1920" height="1080" alt="Снимок экрана 2025-10-10 224527" src="https://github.com/user-attachments/assets/e0e2fa5e-b1e5-44bc-8b54-ba97b9c24f60" />||
