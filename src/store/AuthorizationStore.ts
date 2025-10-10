@@ -1,19 +1,44 @@
 import { makeAutoObservable } from "mobx";
 
+import { api } from "@api/api.ts";
+
 class AuthorizationStore {
     public number: string = "";
+    public numberError: string | null = null;
     public otpCode: number | null = null;
+    public otpCodeError: string | null = null;
+    public isEnteredPhone: boolean = false;
 
     constructor() {
         makeAutoObservable(this);
     }
 
     public setNumber(number: string) {
-        this.number =  this.formatPhoneNumber(number);
+        this.number = this.formatPhoneNumber(number);
     }
 
     public setOtpCode(otpCode: number) {
         this.otpCode = otpCode;
+    }
+
+    public sendRequest = () => {
+        const clearNumber = this.number.replace(/\D/g, "");
+        if (!this.isEnteredPhone) {
+            if (clearNumber.length === 11) {
+                api.post("/auth/otp", { number: this.number }).then((response) => {
+                    console.log(response);
+                });
+                this.numberError = null;
+                this.isEnteredPhone = true;
+            } else {
+                this.numberError = "Поле является обязательным";
+            }
+        } else {
+            api.post("/users/signin", { number: this.number, otp: this.otpCode }).then((response) => {
+                console.log(response);
+            });
+            this.isEnteredPhone = true;
+        }
     }
 
     private formatPhoneNumber(value: string): string {
