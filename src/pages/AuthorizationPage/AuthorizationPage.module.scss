@@ -1,0 +1,12 @@
+.buttons{
+    display: flex;
+    flex-direction: column;
+    gap:24px;
+    padding: 16px 0;
+}
+
+.text {
+    font-size: 14px;
+    line-height: 20px;
+    color: $text-color-quartenery;
+}

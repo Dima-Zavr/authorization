@@ -1,0 +1,43 @@
+.container {
+    position: relative;
+}
+.input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    max-width: 464px;
+    width: 100%;
+    height: 48px;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid $border-color-light;
+    border-radius: 16px;
+    background-color: $bg-color-primary;
+    color: $text-color-primary;
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    &:hover {
+        cursor: pointer;
+        border-color: $border-color-dark;
+    }
+    &:focus {
+        border: 2px solid $bg-color-indicator !important;
+    }
+}
+
+.error {
+    font-size: 14px;
+    color: $text-color-error;
+    position: absolute;
+    bottom: -21px;
+}
