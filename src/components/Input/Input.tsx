@@ -10,7 +10,7 @@ interface IProps {
     onChange: (value: string) => void;
 }
 export const Input = ({ type = "text", id, name, placeholder, value, error, onChange, ...props }: IProps) => (
-    <div>
+    <div className={styles.container}>
         <input
             type={type}
             id={id}
